@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body,html {
+            margin: 0;
+            background-color: rgb(53, 53, 53);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+    <img src="" alt="Woof" title="Refresh To See Another Picture">
+    <script>
+        window.addEventListener('load',()=>{
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(res => res.json())
+                .then(data => {
+                    document.querySelector('img').src = data.message;
+                })
+                .catch(error => {
+                    alert('Get Some Internet And Come Back')
+                });
+        })
+    </script>
+</body>
+</html>
